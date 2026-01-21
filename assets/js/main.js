@@ -38,37 +38,6 @@ const shadowHeader = () =>{
 }
 window.addEventListener('scroll', shadowHeader)
 
-/*=============== EMAIL JS ===============*/
-const contactForm = document.getElementById('contact-form'),
-      contactMessage = document.getElementById('contact-message')
-
-const sendEmail = (e) =>{
-    e.preventDefault()
-
-    // serviceID - templateID - #form - publicKey
-    // YOU NEED TO SIGN UP FOR EMAILJS TO GET THESE KEYS
-    // Watch the tutorial at 55:00 to see how to get them
-    emailjs.sendForm('service_ID_placeholder', 'template_ID_placeholder', '#contact-form', 'public_key_placeholder')
-    .then(() =>{
-        // Show sent message
-        contactMessage.textContent = 'Message sent successfully ✅'
-
-        // Remove message after five seconds
-        setTimeout(() =>{
-            contactMessage.textContent = ''
-        }, 5000)
-
-        // Clear input fields
-        contactForm.reset()
-
-    }, () =>{
-        // Show error message
-        contactMessage.textContent = 'Message not sent (service error) ❌'
-    })
-}
-
-contactForm.addEventListener('submit', sendEmail)
-
 /*=============== SHOW SCROLL UP ===============*/ 
 const scrollUp = () =>{
 	const scrollUp = document.getElementById('scroll-up')
@@ -143,3 +112,4 @@ sr.reveal(`.home__image`, {origin: 'bottom'})
 sr.reveal(`.about__data, .skills__data`, {origin: 'left'})
 sr.reveal(`.about__image, .skills__content`, {origin: 'right'})
 sr.reveal(`.services__card, .projects__card`, {interval: 100})
+
