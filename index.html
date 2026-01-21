@@ -8,7 +8,7 @@
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
 
-      <title>Responsive portfolio website - Matthias Blaue</title>
+      <title>Portfolio - Matthias Blaue</title>
 
       <style>
          /*=============== GOOGLE FONTS ===============*/
@@ -119,7 +119,6 @@
          }
          .nav__toggle { cursor: pointer; }
 
-         /* Navigation for mobile devices */
          @media screen and (max-width: 1150px) {
            .nav__menu {
              position: fixed; top: -100%; left: 0; background-color: hsla(0, 0%, 0%, .75);
@@ -149,7 +148,7 @@
          .home__description { text-align: center; margin-bottom: 2.5rem; }
          .home__buttons { display: flex; justify-content: center; column-gap: 1.5rem; align-items: center; }
          
-         /* THIS FIXES THE HUGE IMAGES */
+         /* IMAGE SIZE FIX */
          .home__img, .about__img { width: 300px; margin: 0 auto; justify-self: center; }
          
          .home__handle { display: grid; justify-items: center; margin-top: 2rem; }
@@ -273,12 +272,12 @@
       <header class="header" id="header">
          <nav class="nav container">
             <a href="#" class="nav__logo">
-               <span class="nav__logo-circle">R</span>
-               <span class="nav__logo-name">Rian Lot.</span>
+               <span class="nav__logo-circle">M</span>
+               <span class="nav__logo-name">Matthias Blaue</span>
             </a>
             <div class="nav__menu" id="nav-menu">
                <span class="nav__title">Menu</span>
-               <h3 class="nav__name">Rian</h3>
+               <h3 class="nav__name">Matthias</h3>
                <ul class="nav__list">
                   <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
                   <li class="nav__item"><a href="#about" class="nav__link">About Me</a></li>
@@ -298,25 +297,24 @@
          <section class="home section" id="home">
             <div class="home__container container grid">
                <div class="home__data">
-                  <h1 class="home__name">Rian Lot</h1>
-                  <h2 class="home__education">Frontend Developer</h2>
+                  <h1 class="home__name">Matthias Blaue</h1>
+                  <h2 class="home__education">EdTech Innovator & Graduate Student</h2>
                   <p class="home__description">
-                     <b>Frontend Developer</b>, with knowledge in web 
-                     development and design, I offer the best 
-                     projects resulting in quality work.
+                     Graduate student in the <b>MEITE program</b> at UNC Chapel Hill. 
+                     Transitioning from <b>Social Work</b> to <b>Educational Innovation and Technology</b>.
                   </p>
                   <div class="home__buttons">
-                     <a download="" href="assets/pdf/Cv-Rian.pdf" class="button button--ghost">Download CV</a>
+                     <a download="" href="assets/pdf/Cv-Matthias.pdf" class="button button--ghost">Download CV</a>
                      <a href="#about" class="button">About me</a>
                   </div>
                </div>
                <div class="home__handle">
-                  <img src="assets/img/home-perfil.png" alt="Profile Image" class="home__img">
+                  <img src="assets/img/home-perfil.png" alt="Matthias Blaue" class="home__img">
                </div>
                <div class="home__social">
-                  <a href="https://www.linkedin.com/" target="_blank" class="home__social-link"><i class="ri-linkedin-box-line"></i></a>
+                  <a href="https://www.linkedin.com/in/matthias-b-780110197/" target="_blank" class="home__social-link"><i class="ri-linkedin-box-line"></i></a>
                   <a href="https://github.com/" target="_blank" class="home__social-link"><i class="ri-github-fill"></i></a>
-                  <a href="https://www.instagram.com/" target="_blank" class="home__social-link"><i class="ri-instagram-line"></i></a>
+                  <a href="#" class="home__social-link"><i class="ri-instagram-line"></i></a>
                </div>
                <a href="#about" class="home__scroll">
                   <i class="ri-mouse-line home__scroll-icon"></i>
@@ -330,114 +328,112 @@
                <div class="about__data">
                   <h2 class="section__title-1">About Me.</h2>
                   <p class="about__description">
-                     Passionate about creating <b>Web Pages</b> with 
-                     <b>UI/UX User Interface</b>, I have years of 
-                     experience and many clients are happy with 
-                     the projects carried out.
+                     I am a former <b>Social Worker</b> from Germany, now based in the 
+                     <b>Durham/Chapel Hill</b> area. I am currently pursuing a Master's 
+                     in Educational Innovation, Technology, and Entrepreneurship at UNC.
                   </p>
                   <ul class="about__list">
                      <li class="about__item">
-                        <b>My Skills Are:</b> HTML, CSS, JavaScript, 
-                        React, Git & GitHub, Bootstrap, Flutter & Figma.
+                        <b>Focus Areas:</b> Personalized Learning, GenAI in Education, 
+                        Instructional Design, and Educational Technology.
                      </li>
                   </ul>
                   <div class="about__buttons">
                      <a href="#contact" class="button">Contact Me</a>
-                     <a href="https://www.linkedin.com/" target="_blank" class="button__ghost"><i class="ri-linkedin-box-line"></i></a>
+                     <a href="https://www.linkedin.com/in/matthias-b-780110197/" target="_blank" class="button__ghost"><i class="ri-linkedin-box-line"></i></a>
                   </div>
                </div>
                <div class="about__image">
-                   <img src="assets/img/about-perfil.jpg" alt="About Image" class="about__img">
+                   <img src="assets/img/about-perfil.jpg" alt="About Matthias" class="about__img">
                </div>
             </div>
          </section>
 
          <section class="services section">
-            <h2 class="section__title-2">Services.</h2>
+            <h2 class="section__title-2">Interests.</h2>
             <div class="services__container container grid">
                <article class="services__card">
                   <div class="services__border"></div>
                   <div class="services__content">
-                     <div class="services__icon"><div class="services__box"></div><i class="ri-layout-4-line"></i></div>
-                     <h3 class="services__title">Web Design</h3>
-                     <p class="services__description">Beautiful and elegant designs with intuitive interfaces.</p>
+                     <div class="services__icon"><div class="services__box"></div><i class="ri-lightbulb-flash-line"></i></div>
+                     <h3 class="services__title">EdTech</h3>
+                     <p class="services__description">Exploring how AI tools like Maslera AI can transform reading comprehension.</p>
                   </div>
                </article>
                <article class="services__card">
                   <div class="services__border"></div>
                   <div class="services__content">
-                     <div class="services__icon"><div class="services__box"></div><i class="ri-code-s-slash-line"></i></div>
-                     <h3 class="services__title">Development</h3>
-                     <p class="services__description">Custom web development tailored to your specifications.</p>
+                     <div class="services__icon"><div class="services__box"></div><i class="ri-gamepad-line"></i></div>
+                     <h3 class="services__title">Gaming</h3>
+                     <p class="services__description">Passionate about RPGs, strategy games, and tabletop board games.</p>
                   </div>
                </article>
                <article class="services__card">
                   <div class="services__border"></div>
                   <div class="services__content">
-                     <div class="services__icon"><div class="services__box"></div><i class="ri-smartphone-line"></i></div>
-                     <h3 class="services__title">Mobile App</h3>
-                     <p class="services__description">Design and transform website projects into mobile apps.</p>
+                     <div class="services__icon"><div class="services__box"></div><i class="ri-restaurant-line"></i></div>
+                     <h3 class="services__title">Culinary</h3>
+                     <p class="services__description">Enthusiastic about international cuisine, from French classics to Asian dishes.</p>
                   </div>
                </article>
             </div>
          </section>
 
-<section class="projects section" id="projects">
-   <h2 class="section__title-1">Projects.</h2>
-   <div class="projects__container container grid">
-      
-      <article class="projects__card">
-         <div class="projects__image">
-            <img src="assets/img/project-1.jpg" alt="Project 1" class="projects__img">
-            <a href="#" class="projects__button button"><i class="ri-arrow-right-up-line"></i></a>
-         </div>
-         <div class="projects__content">
-            <h3 class="projects__subtitle">Website</h3>
-            <h2 class="projects__title">Restaurant Website</h2>
-            <p class="projects__description">Project showing the design at the client's request.</p>
-         </div>
-      </article>
+         <section class="projects section" id="projects">
+            <h2 class="section__title-1">Projects.</h2>
+            <div class="projects__container container grid">
+               
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/project-1.jpg" alt="GenAI Prototyper" class="projects__img">
+                     <a href="#" class="projects__button button"><i class="ri-arrow-right-up-line"></i></a>
+                  </div>
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">AI Course</h3>
+                     <h2 class="projects__title">GenAI Prototyper</h2>
+                     <p class="projects__description">Developed a GenAI prototype for an AI course project.</p>
+                  </div>
+               </article>
 
-      <article class="projects__card">
-         <div class="projects__image">
-            <img src="assets/img/project-2.jpg" alt="Project 2" class="projects__img">
-            <a href="#" class="projects__button button"><i class="ri-arrow-right-up-line"></i></a>
-         </div>
-         <div class="projects__content">
-            <h3 class="projects__subtitle">App</h3>
-            <h2 class="projects__title">Yoga App</h2>
-            <p class="projects__description">Designed to provide a flawless user experience.</p>
-         </div>
-      </article>
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/project-2.jpg" alt="Personalized Learning" class="projects__img">
+                     <a href="#" class="projects__button button"><i class="ri-arrow-right-up-line"></i></a>
+                  </div>
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">MEITE Program</h3>
+                     <h2 class="projects__title">Personalized Learning</h2>
+                     <p class="projects__description">Final proposal for a personalized and adaptive learning course.</p>
+                  </div>
+               </article>
 
-      <article class="projects__card">
-         <div class="projects__image">
-            <img src="assets/img/project-3.jpg" alt="Project 3" class="projects__img">
-            <a href="#" class="projects__button button"><i class="ri-arrow-right-up-line"></i></a>
-         </div>
-         <div class="projects__content">
-            <h3 class="projects__subtitle">App</h3>
-            <h2 class="projects__title">Fast Food App</h2>
-            <p class="projects__description">Transforming website projects into mobile apps.</p>
-         </div>
-      </article>
+               <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="assets/img/project-3.jpg" alt="Instructional Design" class="projects__img">
+                     <a href="#" class="projects__button button"><i class="ri-arrow-right-up-line"></i></a>
+                  </div>
+                  <div class="projects__content">
+                     <h3 class="projects__subtitle">Instructional Design</h3>
+                     <h2 class="projects__title">Online Learning Module</h2>
+                     <p class="projects__description">Created an online learning module for instructional design.</p>
+                  </div>
+               </article>
 
-   </div>
-</section>
+            </div>
+         </section>
 
          <section class="contact section" id="contact">
             <div class="contact__container container grid">
                <div class="contact__data">
                   <h2 class="section__title-2">Contact Me.</h2>
                   <p class="contact__description-1">I will read all emails. Send me any message you want.</p>
-                  <p class="contact__description-2">I need your <b>Name</b> and <b>Email</b>, but you won't receive spam.</p>
                   <div class="contact__geometric-box"></div>
                </div>
                <div class="contact__mail">
                   <h2 class="contact__title">Send Me A Message</h2>
                   
                   <div class="contact__button-box" style="text-align: center; margin-top: 2rem;">
-                     <a href="mailto:example@email.com" class="button">
+                     <a href="mailto:mblaue@unc.edu" class="button">
                         <i class="ri-mail-send-line"></i> Write Me an Email
                      </a>
                   </div>
@@ -451,9 +447,9 @@
                         <p class="contact__social-description-2">Write me on my social networks</p>
                      </div>
                      <div class="contact__social-links">
-                        <a href="https://www.facebook.com/" target="_blank" class="contact__social-link"><i class="ri-facebook-circle-line"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank" class="contact__social-link"><i class="ri-instagram-line"></i></a>
-                        <a href="https://www.linkedin.com/" target="_blank" class="contact__social-link"><i class="ri-linkedin-box-line"></i></a>
+                        <a href="#" class="contact__social-link"><i class="ri-facebook-circle-line"></i></a>
+                        <a href="#" class="contact__social-link"><i class="ri-instagram-line"></i></a>
+                        <a href="https://www.linkedin.com/in/matthias-b-780110197/" target="_blank" class="contact__social-link"><i class="ri-linkedin-box-line"></i></a>
                      </div>
                   </div>
                </div>
@@ -550,4 +546,3 @@
       </script>
    </body>
 </html>
-
