@@ -286,3 +286,11 @@ body.dark-theme {
   .footer__container { grid-template-columns: repeat(2, max-content); justify-content: space-between; }
   .footer__copy { margin-top: 0; }
 }
+
+/*==================== CUSTOM FIXES ====================*/
+
+/* Make the "MB" smaller to fit inside the navigation circle */
+.nav__logo-circle {
+   /* Adjust this number up or down if needed (e.g., 0.9rem or 1.1rem) */
+   font-size: 1rem; 
+}
