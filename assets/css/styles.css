@@ -82,7 +82,7 @@ body.dark-theme {
 }
 .section__title-2::after { top: initial; bottom: -4px; }
 
-/* Decoration Square (General) */
+/* Default Decoration Square (General sections) */
 .geometric-box {
   position: absolute; width: 20px; height: 20px; background-color: var(--first-color); rotate: -30deg;
 }
@@ -105,7 +105,7 @@ body.dark-theme {
 }
 .nav__logo-circle, .nav__toggle {
   width: 32px; height: 32px; background-color: var(--black-color); color: var(--white-color);
-  display: grid; place-items: center; border-radius: 50%; font-size: 1rem; /* Updated Font Size for MB */
+  display: grid; place-items: center; border-radius: 50%; font-size: 1rem; /* Logo Font Size */
 }
 .nav__toggle { cursor: pointer; }
 
@@ -144,8 +144,7 @@ body.dark-theme {
 .button--ghost i { font-size: 2rem; }
 .button--ghost:hover { background-color: var(--black-color); color: var(--white-color); }
 
-/*=============== HOME (MOBILE DEFAULT / SANDWICH LAYOUT) ===============*/
-/* 1. Mobile Structure */
+/*=============== HOME (MOBILE DEFAULT) ===============*/
 .home__container {
   display: grid;
   grid-template-columns: 1fr;
@@ -153,47 +152,38 @@ body.dark-theme {
   padding-top: 2rem;
   position: relative;
 }
-
-/* 2. Order: Name -> Photo -> Text */
+/* Stack Order: Name -> Photo -> Text */
 .home__data-top { grid-row: 1; text-align: center; }
 .home__handle { 
-  grid-row: 2; 
-  justify-self: center; 
-  width: 250px; height: 290px; /* Mobile Size */
-  position: relative;
-  z-index: 1;
+  grid-row: 2; justify-self: center; 
+  width: 250px; height: 290px; 
+  position: relative; z-index: 1;
 }
 .home__data-bottom { grid-row: 3; text-align: center; }
 
-/* 3. Text Styles */
+/* Typography & Mobile Styles */
 .home__name { font-size: var(--biggest-font-size); text-align: center; }
 .home__education { 
   font-size: var(--h3-font-size); text-align: center; margin-bottom: 2rem; 
   position: relative; display: inline-block; z-index: 1;
 }
-/* Highlighter for Job Title */
-.home__education::after {
+.home__education::after { /* Mobile Highlighter */
   content: ''; position: absolute; bottom: 0.1rem; left: -5px; right: -5px; height: 8px;
   background-color: #ffdab9; z-index: -1; opacity: 0.8;
 }
-
 .home__description { text-align: center; margin-bottom: 2.5rem; }
 .home__buttons { display: flex; justify-content: center; column-gap: 1.5rem; align-items: center; }
 .home__img { width: 100%; display: block; }
-
-/* 4. Decorations (Mobile Defaults) */
-.home__arrow, .home__shape-small { display: none; } /* Hide complicated decor on mobile */
+/* Hide complex decor on mobile */
+.home__arrow, .home__shape-small { display: none; } 
 .home__random {
    position: absolute; right: 2rem; top: 6rem; width: 80px; z-index: -1; opacity: 0.5;
 }
-
-/* 5. Social & Scroll */
 .home__social { display: flex; justify-content: center; column-gap: 1.25rem; margin-top: 2rem; }
 .home__social-link { font-size: 1.5rem; color: var(--title-color); transition: color .3s; }
 .home__social-link:hover { color: var(--first-color); }
 .home__scroll { display: block; width: max-content; margin: 2rem auto 0; text-align: center; }
 .home__scroll-name { display: block; font-size: var(--small-font-size); font-weight: var(--font-medium); color: var(--title-color); margin-top: .25rem; }
-
 
 /*=============== ABOUT ===============*/
 .about__img { width: 300px; margin: 0 auto; justify-self: center; }
@@ -254,7 +244,7 @@ body.dark-theme {
   100% { opacity: 1; transform: translateX(0); }
 }
 
-/*=============== BREAKPOINTS (Standard) ===============*/
+/*=============== BREAKPOINTS (Tablets & Small Laptops) ===============*/
 @media screen and (max-width: 320px) {
   .nav__menu { padding-inline: 1.5rem; }
   .home__buttons { flex-direction: column; row-gap: 1rem; }
@@ -270,8 +260,7 @@ body.dark-theme {
   .contact__data, .contact__group, .footer__container { grid-template-columns: repeat(2, 350px); }
 }
 
-/*=============== DESKTOP / RIAN LOT SPECIAL LAYOUT ===============*/
-/* This block handles the Split Screen, Decorations, and Animations */
+/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL) ====================*/
 @media screen and (min-width: 992px) {
   
   /* 1. Global Layout Fixes */
@@ -290,7 +279,7 @@ body.dark-theme {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     padding-top: 4rem;
-    gap: 2rem;
+    gap: 4rem; /* Wide gap like reference */
     overflow-x: hidden;
   }
   
@@ -305,13 +294,13 @@ body.dark-theme {
   .home__data-bottom {
     grid-column: 1; grid-row: 2;
     text-align: left; align-self: start;
-    position: relative; /* Anchor for arrow */
+    position: relative; /* Anchor for squiggle */
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.2s; opacity: 0;
   }
   .home__description { text-align: left; }
   .home__buttons { justify-content: flex-start; }
   
-  /* The M-Dash Line Decoration */
+  /* M-Dash Line Decoration */
   .home__education { margin-left: 3.5rem; }
   .home__education::before {
     content: ''; position: absolute; left: -3.5rem; top: 50%;
@@ -323,45 +312,61 @@ body.dark-theme {
   .home__handle {
     grid-column: 2; grid-row: 1 / span 2;
     width: 350px; 
-    height: auto; /* Allow image to define height (No Stretching!) */
+    height: auto; /* Fits photo naturally */
     justify-self: center;
     position: relative; z-index: 1;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.3s; opacity: 0;
   }
   .home__img { width: 100%; display: block; }
   
-  /* The Black Frame (Fits image exactly) */
+  /* The FRAME: Thick & Bold (10px) */
   .home__handle::after {
     content: ''; position: absolute; width: 100%; height: 100%;
-    border: 3px solid var(--title-color); z-index: -1;
-    top: 1rem; right: -1rem; /* The Offset */
+    border: 10px solid var(--title-color); /* Thicker frame */
+    z-index: -1;
+    top: 1.5rem; right: -1.5rem; 
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
   /* 3. DECORATIONS */
-  /* Orange Square */
+  
+  /* The DIAMOND (Hollow Black + Solid Orange Offset) */
   .home__shape-small {
     display: block; width: 25px; height: 25px;
-    background-color: var(--first-color);
+    background-color: transparent; /* Hollow */
+    border: 3px solid var(--title-color); /* Black outline */
     position: absolute; top: 65%; left: -12px; z-index: 10;
-    transform: rotate(15deg);
-    box-shadow: 4px 4px 0 0 var(--title-color);
+    transform: rotate(45deg); /* Diamond shape */
+    box-shadow: none;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.6s; opacity: 0;
   }
+  .home__shape-small::after { /* The Orange Offset */
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background-color: var(--first-color); /* Filled Orange */
+    top: 4px; left: 4px; z-index: -1;
+  }
   
-  /* The Arrow */
+  /* The ARROW (Black, Points Picture -> Name, Higher up) */
   .home__arrow {
     display: block; position: absolute;
     width: 60px;
-    bottom: 20%; right: -10%; /* Right of text block */
-    transform: rotate(150deg);
-    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
+    filter: brightness(0); /* Force Black */
+    top: 25%; left: -15%; /* Higher & Left of picture */
+    transform: rotate(80deg) scaleX(-1); /* Points down/left to name */
+    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
+    /* Anchor to the photo column grid */
+    grid-column: 2; grid-row: 1;
+    justify-self: start; margin-left: -3rem;
   }
   
-  /* The Scribble */
+  /* The SQUIGGLE (Black, Diagonal under text) */
   .home__random {
-    right: 0; bottom: 0; width: 80px; opacity: 0.8;
-    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
+    filter: brightness(0); /* Force Black */
+    grid-column: 1; grid-row: 2; /* Anchor to text column */
+    position: absolute;
+    bottom: -2rem; left: 40%; /* Diagonal placement */
+    width: 80px; opacity: 1;
+    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
   
   /* Social & Scroll */
