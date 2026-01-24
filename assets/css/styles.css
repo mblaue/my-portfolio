@@ -283,49 +283,33 @@ body.dark-theme {
   .contact__data, .contact__group, .footer__container { grid-template-columns: repeat(2, 350px); }
 }
 
-/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL) ====================*/
+/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL HTML FIX) ====================*/
 @media screen and (min-width: 992px) {
   
-  /* 1. Global Layout Fixes */
-  .container { margin-inline: auto; }
-  .section { padding-block: 7rem 2rem; }
-  .nav { height: calc(var(--header-height) + 2rem); column-gap: 4rem; }
-  .nav__close, .nav__toggle, .nav__title, .nav__name { display: none; }
-  .nav__list { flex-direction: row; column-gap: 4rem; }
-  .nav__menu { margin-left: auto; }
-  .nav__link { color: var(--text-color); font-size: var(--normal-font-size); }
-  .nav__link:hover { color: var(--title-color); }
-  .change-theme { color: var(--text-color); }
-  
-  /* 2. HOME SECTION SPLIT LAYOUT */
+  /* 1. LAYOUT GRID */
   .home__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    gap: 4rem;
     padding-top: 4rem;
-    gap: 4rem; 
-    overflow-x: hidden;
-    position: relative; /* Acts as the anchor for the Arrow */
+    position: relative; /* Global anchor for decorations */
   }
-  
-  /* Left Column: Name */
+
+  /* 2. TEXT COLUMN */
   .home__data-top {
     grid-column: 1; grid-row: 1;
     text-align: left; align-self: end; margin-bottom: -1rem;
-    animation: slideInFromLeft 1s ease-out forwards; opacity: 0;
+    animation: slideInFromLeft 1s ease-out forwards;
   }
-  
-  /* Left Column: Text & Buttons */
-  /* IMPORTANT: 'static' prevents the arrow from getting trapped inside the text block */
   .home__data-bottom {
     grid-column: 1; grid-row: 2;
     text-align: left; align-self: start;
-    position: static; 
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.2s; opacity: 0;
   }
   .home__description { text-align: left; }
   .home__buttons { justify-content: flex-start; }
   
-  /* M-Dash Line Decoration */
+  /* M-Dash Decoration */
   .home__education { margin-left: 3.5rem; }
   .home__education::before {
     content: ''; position: absolute; left: -3.5rem; top: 50%;
@@ -333,89 +317,82 @@ body.dark-theme {
     background-color: var(--text-color);
   }
 
-  /* Right Column: Photo Container */
+  /* 3. PHOTO COLUMN */
   .home__handle {
     grid-column: 2; grid-row: 1 / span 2;
-    width: 350px; 
-    height: auto; 
-    justify-self: center;
-    position: relative; z-index: 1;
+    width: 350px; height: auto;
+    justify-self: center; position: relative; z-index: 1;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.3s; opacity: 0;
   }
-  /* Remove ghost space below image */
   .home__img { width: 100%; display: block; vertical-align: bottom; }
   
-  /* The FRAME: 12px Offset */
+  /* Frame */
   .home__handle::after {
     content: ''; position: absolute; width: 100%; height: 100%;
-    border: 6px solid var(--title-color); 
-    z-index: -1;
+    border: 6px solid var(--title-color); z-index: -1;
     top: 12px; right: -12px; 
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
-  /* 3. DECORATIONS */
-  
-  /* The DIAMOND (Hollow Black Parent) */
+  /* 4. DIAMOND (Rotation & Layering) */
   .home__shape-small {
-    display: block; width: 25px; height: 25px;
-    background-color: transparent; 
-    border: 3px solid var(--title-color); /* Black Outline */
-    position: absolute; top: 65%; left: -12px; z-index: 10; 
-    transform: rotate(45deg); /* Diamond Rotation */
-    box-shadow: none;
+    display: block !important; width: 25px; height: 25px;
+    background-color: transparent !important; border: 3px solid var(--title-color) !important;
+    position: absolute; top: 65%; left: -12px; z-index: 10;
+    transform: rotate(45deg) !important;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.6s; opacity: 0;
   }
-  /* The DIAMOND FILL (Orange Child) */
-  .home__shape-small::after { 
+  .home__shape-small::before { /* Orange Fill */
     content: ''; position: absolute; width: 100%; height: 100%;
-    background-color: var(--first-color); 
-    top: 4px; left: 4px; /* Offset */
-    z-index: -1; /* Puts it BEHIND the black outline */
+    background-color: var(--first-color); top: 4px; left: 4px; z-index: -1;
   }
-  
-  /* The ARROW (Mirrored, Pointing Left) */
+
+  /* 5. ARROW (Now Independent!) */
   .home__arrow {
-    display: block; position: absolute;
-    width: 60px;
-    filter: brightness(0); /* Black */
-    /* Position relative to the .home__container */
-    top: 25%; left: 48%; 
+    display: block !important; position: absolute !important;
+    width: 60px; filter: brightness(0);
     
-    /* Mirror (scaleX -1) + Rotate to point at Name */
-    transform: scaleX(-1) rotate(20deg); 
+    /* Center Placement (Between Text and Photo) */
+    top: 25%; left: 45%;
     
-    /* Slides in with the PICTURE */
+    /* Rotate to point from Photo to Name */
+    transform: scaleX(-1) rotate(20deg) !important;
+    
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
   }
-  
-  /* The SQUIGGLE (Flatter Angle) */
+
+  /* 6. SQUIGGLE (Now Independent!) */
   .home__random {
-    filter: brightness(0); 
-    grid-column: 1; grid-row: 2; 
-    position: absolute;
-    bottom: -3rem; left: 40%; 
-    transform: rotate(-10deg); /* Flatter angle */
+    display: block !important; position: absolute !important;
+    filter: brightness(0);
+    
+    /* Placement under text */
+    bottom: 2rem; left: 20%;
+    
+    transform: rotate(-10deg) !important;
     width: 80px; opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
-  
-  /* Social & Scroll */
+
+  /* 7. OTHER SECTIONS */
   .home__social { display: flex; flex-direction: column; row-gap: 1.5rem; position: absolute; top: 20%; right: -2rem; }
   .home__scroll { margin: 0; text-align: initial; }
-
-  /* 4. OTHER SECTIONS */
+  
   .about__container { grid-template-columns: repeat(2, 460px); gap: 2rem 4rem; align-items: center; }
   .about__img { width: 100%; max-width: 460px; order: -1; }
   .about__data, .about__description, .about__list { text-align: initial; }
   .about__buttons { justify-content: initial; }
+  
   .services__container { grid-template-columns: repeat(3, 300px); column-gap: 3rem; }
   .services__card { padding: 5rem 2rem; }
+  
   .projects__container { grid-template-columns: repeat(3, 350px); column-gap: 3rem; }
+  
   .contact__container { grid-template-columns: 440px 670px; grid-template-rows: initial; padding-bottom: 2rem; }
   .contact__mail { grid-column: 2 / 3; grid-row: 1 / 3; padding: 3rem 1.5rem 3.5rem; }
   .contact__title { font-size: var(--h3-font-size); text-align: initial; }
   .contact__data { text-align: initial; }
+  
   .footer__container { grid-template-columns: repeat(2, max-content); justify-content: space-between; }
   .footer__copy { margin-top: 0; }
 }
