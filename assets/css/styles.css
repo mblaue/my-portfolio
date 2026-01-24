@@ -82,7 +82,7 @@ body.dark-theme {
 }
 .section__title-2::after { top: initial; bottom: -4px; }
 
-/* Decoration Square (Mobile Default) */
+/* Default Decoration Square */
 .geometric-box {
   position: absolute; width: 20px; height: 20px; background-color: var(--first-color); rotate: -30deg;
 }
@@ -283,7 +283,7 @@ body.dark-theme {
   .contact__data, .contact__group, .footer__container { grid-template-columns: repeat(2, 350px); }
 }
 
-/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL CORRECTED) ====================*/
+/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL) ====================*/
 @media screen and (min-width: 992px) {
   
   /* 1. Global Layout Fixes */
@@ -304,7 +304,7 @@ body.dark-theme {
     padding-top: 4rem;
     gap: 4rem; 
     overflow-x: hidden;
-    position: relative; /* Global anchor */
+    position: relative; /* Acts as the anchor for the Arrow */
   }
   
   /* Left Column: Name */
@@ -315,7 +315,7 @@ body.dark-theme {
   }
   
   /* Left Column: Text & Buttons */
-  /* FIX: 'static' releases the arrow so it can be positioned relative to the grid */
+  /* IMPORTANT: 'static' prevents the arrow from getting trapped inside the text block */
   .home__data-bottom {
     grid-column: 1; grid-row: 2;
     text-align: left; align-self: start;
@@ -340,13 +340,12 @@ body.dark-theme {
     height: auto; 
     justify-self: center;
     position: relative; z-index: 1;
-    /* Photo slides in from RIGHT */
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.3s; opacity: 0;
   }
-  /* Remove bottom ghost space */
+  /* Remove ghost space below image */
   .home__img { width: 100%; display: block; vertical-align: bottom; }
   
-  /* The FRAME: Tighter Offset (12px) */
+  /* The FRAME: 12px Offset */
   .home__handle::after {
     content: ''; position: absolute; width: 100%; height: 100%;
     border: 6px solid var(--title-color); 
@@ -357,35 +356,36 @@ body.dark-theme {
 
   /* 3. DECORATIONS */
   
-  /* The DIAMOND (Black Front, Orange Back) */
+  /* The DIAMOND (Hollow Black Parent) */
   .home__shape-small {
     display: block; width: 25px; height: 25px;
     background-color: transparent; 
-    border: 3px solid var(--title-color); 
+    border: 3px solid var(--title-color); /* Black Outline */
     position: absolute; top: 65%; left: -12px; z-index: 10; 
-    transform: rotate(45deg); 
+    transform: rotate(45deg); /* Diamond Rotation */
     box-shadow: none;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.6s; opacity: 0;
   }
+  /* The DIAMOND FILL (Orange Child) */
   .home__shape-small::after { 
     content: ''; position: absolute; width: 100%; height: 100%;
     background-color: var(--first-color); 
-    top: 4px; left: 4px; 
-    z-index: -1; 
+    top: 4px; left: 4px; /* Offset */
+    z-index: -1; /* Puts it BEHIND the black outline */
   }
   
   /* The ARROW (Mirrored, Pointing Left) */
   .home__arrow {
     display: block; position: absolute;
     width: 60px;
-    filter: brightness(0); 
-    /* Anchored to the Grid Container (because parent is static) */
-    top: 25%; left: 48%; /* Center-ish placement */
+    filter: brightness(0); /* Black */
+    /* Position relative to the .home__container */
+    top: 25%; left: 48%; 
     
-    /* Perfect Mirror Logic */
+    /* Mirror (scaleX -1) + Rotate to point at Name */
     transform: scaleX(-1) rotate(20deg); 
     
-    /* Slide in with the PICTURE (Right) */
+    /* Slides in with the PICTURE */
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
   }
   
@@ -395,7 +395,7 @@ body.dark-theme {
     grid-column: 1; grid-row: 2; 
     position: absolute;
     bottom: -3rem; left: 40%; 
-    transform: rotate(-30deg); 
+    transform: rotate(-10deg); /* Flatter angle */
     width: 80px; opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
@@ -419,4 +419,4 @@ body.dark-theme {
   .footer__container { grid-template-columns: repeat(2, max-content); justify-content: space-between; }
   .footer__copy { margin-top: 0; }
 }
-/* === END OF FILE - MAKE SURE YOU COPY UNTIL HERE === */
+/* === END OF FILE === */
