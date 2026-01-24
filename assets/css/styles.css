@@ -82,7 +82,7 @@ body.dark-theme {
 }
 .section__title-2::after { top: initial; bottom: -4px; }
 
-/* Default Decoration Square (General sections) */
+/* Decoration Square (Mobile Default) */
 .geometric-box {
   position: absolute; width: 20px; height: 20px; background-color: var(--first-color); rotate: -30deg;
 }
@@ -105,7 +105,7 @@ body.dark-theme {
 }
 .nav__logo-circle, .nav__toggle {
   width: 32px; height: 32px; background-color: var(--black-color); color: var(--white-color);
-  display: grid; place-items: center; border-radius: 50%; font-size: 1rem; /* Logo Font Size */
+  display: grid; place-items: center; border-radius: 50%; font-size: 1rem;
 }
 .nav__toggle { cursor: pointer; }
 
@@ -131,6 +131,20 @@ body.dark-theme {
 .show-menu { top: 0; }
 .shadow-header { box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1); }
 
+/* Fix "Contact Me" Nav Button (Sharp & Bold) */
+.nav__link-button {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  padding: 1rem 1.5rem; 
+  border-radius: 0; 
+  font-weight: var(--font-semi-bold);
+  transition: .4s;
+}
+.nav__link-button:hover {
+  background-color: var(--first-color); 
+  color: var(--white-color);
+}
+
 /*=============== BUTTONS ===============*/
 .button {
   display: inline-block; background-color: var(--black-color); color: var(--white-color); padding: 1rem 1.5rem;
@@ -152,7 +166,6 @@ body.dark-theme {
   padding-top: 2rem;
   position: relative;
 }
-/* Stack Order: Name -> Photo -> Text */
 .home__data-top { grid-row: 1; text-align: center; }
 .home__handle { 
   grid-row: 2; justify-self: center; 
@@ -161,29 +174,39 @@ body.dark-theme {
 }
 .home__data-bottom { grid-row: 3; text-align: center; }
 
-/* Typography & Mobile Styles */
 .home__name { font-size: var(--biggest-font-size); text-align: center; }
 .home__education { 
   font-size: var(--h3-font-size); text-align: center; margin-bottom: 2rem; 
   position: relative; display: inline-block; z-index: 1;
 }
-.home__education::after { /* Mobile Highlighter */
+.home__education::after { /* Highlighter */
   content: ''; position: absolute; bottom: 0.1rem; left: -5px; right: -5px; height: 8px;
   background-color: #ffdab9; z-index: -1; opacity: 0.8;
 }
 .home__description { text-align: center; margin-bottom: 2.5rem; }
 .home__buttons { display: flex; justify-content: center; column-gap: 1.5rem; align-items: center; }
 .home__img { width: 100%; display: block; }
-/* Hide complex decor on mobile */
 .home__arrow, .home__shape-small { display: none; } 
 .home__random {
    position: absolute; right: 2rem; top: 6rem; width: 80px; z-index: -1; opacity: 0.5;
 }
+
+/* Social Icons (Gray Box Style) */
 .home__social { display: flex; justify-content: center; column-gap: 1.25rem; margin-top: 2rem; }
-.home__social-link { font-size: 1.5rem; color: var(--title-color); transition: color .3s; }
-.home__social-link:hover { color: var(--first-color); }
-.home__scroll { display: block; width: max-content; margin: 2rem auto 0; text-align: center; }
-.home__scroll-name { display: block; font-size: var(--small-font-size); font-weight: var(--font-medium); color: var(--title-color); margin-top: .25rem; }
+.home__social-link {
+  background-color: var(--container-color); color: var(--title-color);
+  width: 40px; height: 40px; display: grid; place-items: center; transition: .4s; font-size: 1.25rem;
+}
+.home__social-link:hover { background-color: var(--black-color); color: var(--white-color); }
+
+/* Scroll Down (Black Box Style) */
+.home__scroll { display: flex; align-items: center; column-gap: 0.5rem; margin: 2rem auto 0; width: max-content; }
+.home__scroll-icon {
+  width: 35px; height: 35px; background-color: var(--black-color); color: var(--white-color);
+  display: grid; place-items: center; font-size: 1.2rem;
+}
+.home__scroll-icon::before { content: "\ea4e"; /* Arrow Down Icon */ }
+.home__scroll-name { font-size: var(--small-font-size); font-weight: var(--font-medium); color: var(--title-color); }
 
 /*=============== ABOUT ===============*/
 .about__img { width: 300px; margin: 0 auto; justify-self: center; }
@@ -244,7 +267,7 @@ body.dark-theme {
   100% { opacity: 1; transform: translateX(0); }
 }
 
-/*=============== BREAKPOINTS (Tablets & Small Laptops) ===============*/
+/*=============== BREAKPOINTS ===============*/
 @media screen and (max-width: 320px) {
   .nav__menu { padding-inline: 1.5rem; }
   .home__buttons { flex-direction: column; row-gap: 1rem; }
@@ -260,7 +283,7 @@ body.dark-theme {
   .contact__data, .contact__group, .footer__container { grid-template-columns: repeat(2, 350px); }
 }
 
-/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL POLISH) ====================*/
+/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL CORRECTED) ====================*/
 @media screen and (min-width: 992px) {
   
   /* 1. Global Layout Fixes */
@@ -279,7 +302,7 @@ body.dark-theme {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     padding-top: 4rem;
-    gap: 4rem; /* Wide gap like reference */
+    gap: 4rem; 
     overflow-x: hidden;
   }
   
@@ -294,7 +317,7 @@ body.dark-theme {
   .home__data-bottom {
     grid-column: 1; grid-row: 2;
     text-align: left; align-self: start;
-    position: relative; /* Anchor for arrow & squiggle */
+    position: relative; /* Anchor for squiggle */
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.2s; opacity: 0;
   }
   .home__description { text-align: left; }
@@ -312,59 +335,73 @@ body.dark-theme {
   .home__handle {
     grid-column: 2; grid-row: 1 / span 2;
     width: 350px; 
-    height: auto; /* Fits photo naturally */
+    height: auto; 
     justify-self: center;
     position: relative; z-index: 1;
+    /* CHANGE: Photo slides in from RIGHT */
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.3s; opacity: 0;
   }
+  /* CHANGE: display: block removes the tiny gap at the bottom of images */
   .home__img { width: 100%; display: block; }
   
-  /* The FRAME: Medium Thick (6px) & Tight Offset */
+  /* The FRAME: 6px Thick & TIGHT Offset */
   .home__handle::after {
     content: ''; position: absolute; width: 100%; height: 100%;
-    border: 6px solid var(--title-color); /* Thicker than original, thinner than last attempt */
+    border: 6px solid var(--title-color); 
     z-index: -1;
-    top: 1rem; right: -1rem; /* Tighter offset */
+    /* CHANGE: Even spacing (15px) on Top and Right */
+    top: 15px; right: -15px; 
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
   /* 3. DECORATIONS */
   
-  /* The DIAMOND (Hollow Black Front + Solid Orange Back) */
+  /* The DIAMOND (FIXED: Black Front, Orange Back) */
   .home__shape-small {
     display: block; width: 25px; height: 25px;
-    background-color: transparent; /* Hollow center */
-    border: 3px solid var(--title-color); /* Black Outline */
-    position: absolute; top: 65%; left: -12px; z-index: 10; /* z-index 10 puts it in front */
-    transform: rotate(45deg); /* Rotate to Diamond */
+    background-color: transparent; 
+    /* The Hollow Black Box is now the Parent (z-index 10) */
+    border: 3px solid var(--title-color); 
+    position: absolute; top: 65%; left: -12px; z-index: 10; 
+    transform: rotate(45deg); /* Diamond shape */
     box-shadow: none;
+    /* Slides in with Picture */
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.6s; opacity: 0;
   }
-  .home__shape-small::after { /* The Orange Offset Fill */
+  .home__shape-small::after { 
+    /* The Solid Orange Box is the Child (z-index -1 puts it behind the border) */
     content: ''; position: absolute; width: 100%; height: 100%;
-    background-color: var(--first-color); /* Filled Orange */
-    top: 4px; left: 4px; /* Offset */
-    z-index: -1; /* Puts it behind the hollow black box */
+    background-color: var(--first-color); 
+    /* Offset relative to parent */
+    top: 4px; left: 4px; 
+    z-index: -1; 
   }
   
-  /* The ARROW (Black, Points to Name) */
+  /* The ARROW (FIXED: With Picture, Mirrored, Pointing Left) */
   .home__arrow {
     display: block; position: absolute;
     width: 60px;
-    filter: brightness(0); /* Force Black color */
-    /* Position relative to the Text Column (home__data-bottom) */
-    top: -25%; right: -20%; 
-    transform: rotate(10deg); /* Shallow angle pointing to head */
-    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
+    filter: brightness(0); /* Black */
+    /* Position attached to the Picture Column */
+    top: 20%; left: -3rem; 
+    /* MIRRORED HORIZONTALLY (scaleX -1) and rotated to point down-left */
+    transform: scaleX(-1) rotate(20deg); 
+    /* SLIDES IN FROM RIGHT (With the picture) */
+    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
+    
+    /* Grid Anchor: Stick to the Picture Column */
+    grid-column: 2; grid-row: 1;
+    justify-self: start; 
   }
   
-  /* The SQUIGGLE (Black, Diagonal under text) */
+  /* The SQUIGGLE (FIXED: Flatter Angle) */
   .home__random {
-    filter: brightness(0); /* Force Black color */
-    grid-column: 1; grid-row: 2; /* Anchor to text column grid space */
+    filter: brightness(0); /* Black */
+    grid-column: 1; grid-row: 2; 
     position: absolute;
     bottom: -3rem; left: 40%; 
-    transform: rotate(-20deg); /* Shallow diagonal angle */
+    /* FLATTER ANGLE (-10deg) */
+    transform: rotate(-10deg); 
     width: 80px; opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
@@ -373,7 +410,7 @@ body.dark-theme {
   .home__social { display: flex; flex-direction: column; row-gap: 1.5rem; position: absolute; top: 20%; right: -2rem; }
   .home__scroll { margin: 0; text-align: initial; }
 
-  /* 4. OTHER SECTIONS (Layout Adjustments) */
+  /* 4. OTHER SECTIONS */
   .about__container { grid-template-columns: repeat(2, 460px); gap: 2rem 4rem; align-items: center; }
   .about__img { width: 100%; max-width: 460px; order: -1; }
   .about__data, .about__description, .about__list { text-align: initial; }
