@@ -242,7 +242,7 @@ body.dark-theme {
 .scrollup:hover { transform: translateY(-.5rem); }
 .show-scroll { bottom: 3rem; }
 
-/*=============== ANIMATION KEYFRAMES ===============*/
+/*=============== ANIMATION KEYFRAMES (GENERIC) ===============*/
 @keyframes slideInFromLeft {
   0% { opacity: 0; transform: translateX(-80px); }
   100% { opacity: 1; transform: translateX(0); }
@@ -250,6 +250,17 @@ body.dark-theme {
 @keyframes slideInFromRight {
   0% { opacity: 0; transform: translateX(80px); }
   100% { opacity: 1; transform: translateX(0); }
+}
+
+/*=============== ANIMATION KEYFRAMES (CUSTOM FOR ROTATED ELEMENTS) ===============*/
+/* These ensure the rotation isn't reset during the slide animation */
+@keyframes slideArrow {
+  0% { opacity: 0; transform: translateX(80px) rotate(70deg); }
+  100% { opacity: 1; transform: translateX(0) rotate(70deg); }
+}
+@keyframes slideSquiggle {
+  0% { opacity: 0; transform: translateX(-80px) rotate(20deg); }
+  100% { opacity: 1; transform: translateX(0) rotate(20deg); }
 }
 
 /*=============== BREAKPOINTS (Standard) ===============*/
@@ -269,7 +280,6 @@ body.dark-theme {
 }
 
 /*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (SYNCED 1150px) ====================*/
-/* NOTE: Min-width set to 1150px to match Navigation breakpoint */
 @media screen and (min-width: 1150px) {
   
   /* 1. GLOBAL & NAV */
@@ -345,34 +355,28 @@ body.dark-theme {
     background-color: var(--first-color); top: 4px; left: 4px; z-index: -1;
   }
 
-  /* 6. ARROW (Fixed Coordinates + 70 deg Angle + Animation) */
+  /* 6. ARROW (Custom Animation: Slide + Rotate) */
   .home__arrow {
     display: block; position: absolute;
     width: 60px; filter: brightness(0);
     
-    /* Position relative to grid container */
+    /* Position */
     top: 25%; left: 45%;
     
-    /* Mirror and Rotate 70deg */
-    transform: scaleX(-1) rotate(70deg) !important;
-    
-    /* Sync with PHOTO (Right) */
-    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
+    /* Animation includes rotation to prevent conflict */
+    animation: slideArrow 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
-  /* 7. SQUIGGLE (Fixed Coordinates + -20 deg Angle + Animation) */
+  /* 7. SQUIGGLE (Custom Animation: Slide + Rotate) */
   .home__random {
     display: block; position: absolute;
     filter: brightness(0);
     
     bottom: 2rem; left: 20%;
-    
-    /* Rotate -20deg */
-    transform: rotate(-20deg) !important;
-    
     width: 80px; 
-    /* Sync with TEXT (Left) */
-    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
+    
+    /* Animation includes rotation to prevent conflict */
+    animation: slideSquiggle 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
   }
 
   /* 8. OTHER SECTIONS */
