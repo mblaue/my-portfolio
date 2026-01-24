@@ -109,6 +109,7 @@ body.dark-theme {
 }
 .nav__toggle { cursor: pointer; }
 
+/* MOBILE NAV (UP TO 1150px) */
 @media screen and (max-width: 1150px) {
   .nav__menu {
     position: fixed; top: -100%; left: 0; background-color: hsla(0, 0%, 0%, .75);
@@ -131,19 +132,12 @@ body.dark-theme {
 .show-menu { top: 0; }
 .shadow-header { box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1); }
 
-/* Fix "Contact Me" Nav Button (Sharp & Bold) */
+/* Contact Me Button */
 .nav__link-button {
-  background-color: var(--black-color);
-  color: var(--white-color);
-  padding: 1rem 1.5rem; 
-  border-radius: 0; 
-  font-weight: var(--font-semi-bold);
-  transition: .4s;
+  background-color: var(--black-color); color: var(--white-color);
+  padding: 1rem 1.5rem; border-radius: 0; font-weight: var(--font-semi-bold); transition: .4s;
 }
-.nav__link-button:hover {
-  background-color: var(--first-color); 
-  color: var(--white-color);
-}
+.nav__link-button:hover { background-color: var(--first-color); color: var(--white-color); }
 
 /*=============== BUTTONS ===============*/
 .button {
@@ -160,17 +154,11 @@ body.dark-theme {
 
 /*=============== HOME (MOBILE DEFAULT) ===============*/
 .home__container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  padding-top: 2rem;
-  position: relative;
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding-top: 2rem; position: relative;
 }
 .home__data-top { grid-row: 1; text-align: center; }
 .home__handle { 
-  grid-row: 2; justify-self: center; 
-  width: 250px; height: 290px; 
-  position: relative; z-index: 1;
+  grid-row: 2; justify-self: center; width: 250px; height: 290px; position: relative; z-index: 1;
 }
 .home__data-bottom { grid-row: 3; text-align: center; }
 
@@ -186,12 +174,10 @@ body.dark-theme {
 .home__description { text-align: center; margin-bottom: 2.5rem; }
 .home__buttons { display: flex; justify-content: center; column-gap: 1.5rem; align-items: center; }
 .home__img { width: 100%; display: block; }
-.home__arrow, .home__shape-small { display: none; } 
-.home__random {
-   position: absolute; right: 2rem; top: 6rem; width: 80px; z-index: -1; opacity: 0.5;
-}
+/* Hide decor on mobile */
+.home__arrow, .home__shape-small, .home__random { display: none; } 
 
-/* Social Icons (Gray Box Style) */
+/* Social & Scroll */
 .home__social { display: flex; justify-content: center; column-gap: 1.25rem; margin-top: 2rem; }
 .home__social-link {
   background-color: var(--container-color); color: var(--title-color);
@@ -199,13 +185,12 @@ body.dark-theme {
 }
 .home__social-link:hover { background-color: var(--black-color); color: var(--white-color); }
 
-/* Scroll Down (Black Box Style) */
 .home__scroll { display: flex; align-items: center; column-gap: 0.5rem; margin: 2rem auto 0; width: max-content; }
 .home__scroll-icon {
   width: 35px; height: 35px; background-color: var(--black-color); color: var(--white-color);
   display: grid; place-items: center; font-size: 1.2rem;
 }
-.home__scroll-icon::before { content: "\ea4e"; /* Arrow Down Icon */ }
+.home__scroll-icon::before { content: "\ea4e"; /* Arrow Down */ }
 .home__scroll-name { font-size: var(--small-font-size); font-weight: var(--font-medium); color: var(--title-color); }
 
 /*=============== ABOUT ===============*/
@@ -267,7 +252,7 @@ body.dark-theme {
   100% { opacity: 1; transform: translateX(0); }
 }
 
-/*=============== BREAKPOINTS ===============*/
+/*=============== BREAKPOINTS (Standard) ===============*/
 @media screen and (max-width: 320px) {
   .nav__menu { padding-inline: 1.5rem; }
   .home__buttons { flex-direction: column; row-gap: 1rem; }
@@ -283,19 +268,31 @@ body.dark-theme {
   .contact__data, .contact__group, .footer__container { grid-template-columns: repeat(2, 350px); }
 }
 
-/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL HTML FIX) ====================*/
-@media screen and (min-width: 992px) {
+/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (SYNCED 1150px) ====================*/
+/* NOTE: Min-width set to 1150px to match Navigation breakpoint */
+@media screen and (min-width: 1150px) {
   
-  /* 1. LAYOUT GRID */
+  /* 1. GLOBAL & NAV */
+  .container { margin-inline: auto; }
+  .section { padding-block: 7rem 2rem; }
+  .nav { height: calc(var(--header-height) + 2rem); column-gap: 4rem; }
+  .nav__close, .nav__toggle, .nav__title, .nav__name { display: none; }
+  .nav__list { flex-direction: row; column-gap: 4rem; }
+  .nav__menu { margin-left: auto; }
+  .nav__link { color: var(--text-color); font-size: var(--normal-font-size); }
+  .nav__link:hover { color: var(--title-color); }
+  .change-theme { color: var(--text-color); }
+  
+  /* 2. HOME GRID */
   .home__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 4rem;
     padding-top: 4rem;
-    position: relative; /* Global anchor for decorations */
+    position: relative; /* Global anchor */
   }
 
-  /* 2. TEXT COLUMN */
+  /* 3. COLUMNS */
   .home__data-top {
     grid-column: 1; grid-row: 1;
     text-align: left; align-self: end; margin-bottom: -1rem;
@@ -309,7 +306,7 @@ body.dark-theme {
   .home__description { text-align: left; }
   .home__buttons { justify-content: flex-start; }
   
-  /* M-Dash Decoration */
+  /* M-Dash */
   .home__education { margin-left: 3.5rem; }
   .home__education::before {
     content: ''; position: absolute; left: -3.5rem; top: 50%;
@@ -317,7 +314,7 @@ body.dark-theme {
     background-color: var(--text-color);
   }
 
-  /* 3. PHOTO COLUMN */
+  /* 4. PHOTO */
   .home__handle {
     grid-column: 2; grid-row: 1 / span 2;
     width: 350px; height: auto;
@@ -326,7 +323,7 @@ body.dark-theme {
   }
   .home__img { width: 100%; display: block; vertical-align: bottom; }
   
-  /* Frame */
+  /* FRAME */
   .home__handle::after {
     content: ''; position: absolute; width: 100%; height: 100%;
     border: 6px solid var(--title-color); z-index: -1;
@@ -334,10 +331,11 @@ body.dark-theme {
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
-  /* 4. DIAMOND (Rotation & Layering) */
+  /* 5. DIAMOND (Rotation + Layering) */
   .home__shape-small {
-    display: block !important; width: 25px; height: 25px;
-    background-color: transparent !important; border: 3px solid var(--title-color) !important;
+    display: block; width: 25px; height: 25px;
+    background-color: transparent !important; 
+    border: 3px solid var(--title-color) !important;
     position: absolute; top: 65%; left: -12px; z-index: 10;
     transform: rotate(45deg) !important;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.6s; opacity: 0;
@@ -347,26 +345,25 @@ body.dark-theme {
     background-color: var(--first-color); top: 4px; left: 4px; z-index: -1;
   }
 
-  /* 5. ARROW (Now Independent!) */
+  /* 6. ARROW (Fixed Coordinates) */
   .home__arrow {
-    display: block !important; position: absolute !important;
+    display: block; position: absolute;
     width: 60px; filter: brightness(0);
     
-    /* Center Placement (Between Text and Photo) */
+    /* Position relative to grid container */
     top: 25%; left: 45%;
     
-    /* Rotate to point from Photo to Name */
+    /* Mirror and Rotate */
     transform: scaleX(-1) rotate(20deg) !important;
     
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
   }
 
-  /* 6. SQUIGGLE (Now Independent!) */
+  /* 7. SQUIGGLE (Fixed Coordinates) */
   .home__random {
-    display: block !important; position: absolute !important;
+    display: block; position: absolute;
     filter: brightness(0);
     
-    /* Placement under text */
     bottom: 2rem; left: 20%;
     
     transform: rotate(-10deg) !important;
@@ -374,7 +371,7 @@ body.dark-theme {
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
-  /* 7. OTHER SECTIONS */
+  /* 8. OTHER SECTIONS */
   .home__social { display: flex; flex-direction: column; row-gap: 1.5rem; position: absolute; top: 20%; right: -2rem; }
   .home__scroll { margin: 0; text-align: initial; }
   
@@ -396,4 +393,3 @@ body.dark-theme {
   .footer__container { grid-template-columns: repeat(2, max-content); justify-content: space-between; }
   .footer__copy { margin-top: 0; }
 }
-/* === END OF FILE === */
