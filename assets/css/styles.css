@@ -345,7 +345,7 @@ body.dark-theme {
     background-color: var(--first-color); top: 4px; left: 4px; z-index: -1;
   }
 
-  /* 6. ARROW (Fixed Coordinates) */
+  /* 6. ARROW (Fixed Coordinates + 70 deg Angle + Animation) */
   .home__arrow {
     display: block; position: absolute;
     width: 60px; filter: brightness(0);
@@ -353,22 +353,26 @@ body.dark-theme {
     /* Position relative to grid container */
     top: 25%; left: 45%;
     
-    /* Mirror and Rotate */
-    transform: scaleX(-1) rotate(20deg) !important;
+    /* Mirror and Rotate 70deg */
+    transform: scaleX(-1) rotate(70deg) !important;
     
-    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
+    /* Sync with PHOTO (Right) */
+    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
-  /* 7. SQUIGGLE (Fixed Coordinates) */
+  /* 7. SQUIGGLE (Fixed Coordinates + -20 deg Angle + Animation) */
   .home__random {
     display: block; position: absolute;
     filter: brightness(0);
     
     bottom: 2rem; left: 20%;
     
-    transform: rotate(-10deg) !important;
-    width: 80px; opacity: 1;
-    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
+    /* Rotate -20deg */
+    transform: rotate(-20deg) !important;
+    
+    width: 80px; 
+    /* Sync with TEXT (Left) */
+    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
   }
 
   /* 8. OTHER SECTIONS */
