@@ -253,10 +253,10 @@ body.dark-theme {
 }
 
 /*=============== ANIMATION KEYFRAMES (CUSTOM FOR ROTATED ELEMENTS) ===============*/
-/* These ensure the rotation isn't reset during the slide animation */
+/* UPDATED: Arrow rotation changed from 70deg to 60deg */
 @keyframes slideArrow {
-  0% { opacity: 0; transform: translateX(80px) rotate(70deg); }
-  100% { opacity: 1; transform: translateX(0) rotate(70deg); }
+  0% { opacity: 0; transform: translateX(80px) rotate(60deg); }
+  100% { opacity: 1; transform: translateX(0) rotate(60deg); }
 }
 @keyframes slideSquiggle {
   0% { opacity: 0; transform: translateX(-80px) rotate(20deg); }
@@ -308,9 +308,11 @@ body.dark-theme {
     text-align: left; align-self: end; margin-bottom: -1rem;
     animation: slideInFromLeft 1s ease-out forwards;
   }
+  /* UPDATED: Added margin-left to indent text block */
   .home__data-bottom {
     grid-column: 1; grid-row: 2;
     text-align: left; align-self: start;
+    margin-left: 3.5rem; 
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.2s; opacity: 0;
   }
   .home__description { text-align: left; }
@@ -356,12 +358,13 @@ body.dark-theme {
   }
 
   /* 6. ARROW (Custom Animation: Slide + Rotate) */
+  /* UPDATED: Position moved to 52%, Angle changed to 60deg */
   .home__arrow {
     display: block; position: absolute;
     width: 60px; filter: brightness(0);
     
     /* Position */
-    top: 25%; left: 45%;
+    top: 25%; left: 52%;
     
     /* Animation includes rotation to prevent conflict */
     animation: slideArrow 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
