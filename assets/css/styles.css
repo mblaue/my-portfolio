@@ -395,7 +395,7 @@ body.dark-theme {
     grid-column: 1; grid-row: 2; 
     position: absolute;
     bottom: -3rem; left: 40%; 
-    transform: rotate(-10deg); 
+    transform: rotate(-30deg); 
     width: 80px; opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
@@ -419,3 +419,4 @@ body.dark-theme {
   .footer__container { grid-template-columns: repeat(2, max-content); justify-content: space-between; }
   .footer__copy { margin-top: 0; }
 }
+/* === END OF FILE - MAKE SURE YOU COPY UNTIL HERE === */
