@@ -260,7 +260,7 @@ body.dark-theme {
   .contact__data, .contact__group, .footer__container { grid-template-columns: repeat(2, 350px); }
 }
 
-/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL) ====================*/
+/*==================== DESKTOP / RIAN LOT SPECIAL LAYOUT (FINAL POLISH) ====================*/
 @media screen and (min-width: 992px) {
   
   /* 1. Global Layout Fixes */
@@ -294,7 +294,7 @@ body.dark-theme {
   .home__data-bottom {
     grid-column: 1; grid-row: 2;
     text-align: left; align-self: start;
-    position: relative; /* Anchor for squiggle */
+    position: relative; /* Anchor for arrow & squiggle */
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.2s; opacity: 0;
   }
   .home__description { text-align: left; }
@@ -319,52 +319,52 @@ body.dark-theme {
   }
   .home__img { width: 100%; display: block; }
   
-  /* The FRAME: Thick & Bold (10px) */
+  /* The FRAME: Medium Thick (6px) & Tight Offset */
   .home__handle::after {
     content: ''; position: absolute; width: 100%; height: 100%;
-    border: 10px solid var(--title-color); /* Thicker frame */
+    border: 6px solid var(--title-color); /* Thicker than original, thinner than last attempt */
     z-index: -1;
-    top: 1.5rem; right: -1.5rem; 
+    top: 1rem; right: -1rem; /* Tighter offset */
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
 
   /* 3. DECORATIONS */
   
-  /* The DIAMOND (Hollow Black + Solid Orange Offset) */
+  /* The DIAMOND (Hollow Black Front + Solid Orange Back) */
   .home__shape-small {
     display: block; width: 25px; height: 25px;
-    background-color: transparent; /* Hollow */
-    border: 3px solid var(--title-color); /* Black outline */
-    position: absolute; top: 65%; left: -12px; z-index: 10;
-    transform: rotate(45deg); /* Diamond shape */
+    background-color: transparent; /* Hollow center */
+    border: 3px solid var(--title-color); /* Black Outline */
+    position: absolute; top: 65%; left: -12px; z-index: 10; /* z-index 10 puts it in front */
+    transform: rotate(45deg); /* Rotate to Diamond */
     box-shadow: none;
     animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.6s; opacity: 0;
   }
-  .home__shape-small::after { /* The Orange Offset */
+  .home__shape-small::after { /* The Orange Offset Fill */
     content: ''; position: absolute; width: 100%; height: 100%;
     background-color: var(--first-color); /* Filled Orange */
-    top: 4px; left: 4px; z-index: -1;
+    top: 4px; left: 4px; /* Offset */
+    z-index: -1; /* Puts it behind the hollow black box */
   }
   
-  /* The ARROW (Black, Points Picture -> Name, Higher up) */
+  /* The ARROW (Black, Points to Name) */
   .home__arrow {
     display: block; position: absolute;
     width: 60px;
-    filter: brightness(0); /* Force Black */
-    top: 25%; left: -15%; /* Higher & Left of picture */
-    transform: rotate(80deg) scaleX(-1); /* Points down/left to name */
-    animation: slideInFromRight 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
-    /* Anchor to the photo column grid */
-    grid-column: 2; grid-row: 1;
-    justify-self: start; margin-left: -3rem;
+    filter: brightness(0); /* Force Black color */
+    /* Position relative to the Text Column (home__data-bottom) */
+    top: -25%; right: -20%; 
+    transform: rotate(10deg); /* Shallow angle pointing to head */
+    animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.4s; opacity: 0;
   }
   
   /* The SQUIGGLE (Black, Diagonal under text) */
   .home__random {
-    filter: brightness(0); /* Force Black */
-    grid-column: 1; grid-row: 2; /* Anchor to text column */
+    filter: brightness(0); /* Force Black color */
+    grid-column: 1; grid-row: 2; /* Anchor to text column grid space */
     position: absolute;
-    bottom: -2rem; left: 40%; /* Diagonal placement */
+    bottom: -3rem; left: 40%; 
+    transform: rotate(-20deg); /* Shallow diagonal angle */
     width: 80px; opacity: 1;
     animation: slideInFromLeft 1s ease-out forwards; animation-delay: 0.5s; opacity: 0;
   }
