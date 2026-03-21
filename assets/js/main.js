@@ -33,7 +33,7 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 const shadowHeader = () =>{
    const header = document.getElementById('header')
    // When the scroll is greater than 50 viewport height, add the shadow-header class to the header tag
-   this.scrollY >= 50 ? header.classList.add('shadow-header') 
+   window.scrollY >= 50 ? header.classList.add('shadow-header') 
                       : header.classList.remove('shadow-header')
 }
 window.addEventListener('scroll', shadowHeader)
@@ -71,7 +71,7 @@ contactForm.addEventListener('submit', sendEmail)
 const scrollUp = () =>{
 	const scrollUp = document.getElementById('scroll-up')
     // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scrollup class
-	this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+	window.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
 						: scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
