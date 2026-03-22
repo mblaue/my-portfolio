@@ -741,6 +741,9 @@ body.dark-theme {
 .projects__card {
   padding: 1rem 1rem 2rem;
   transition: background-color .4s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .projects__image {
@@ -757,6 +760,7 @@ body.dark-theme {
 
 .projects__content {
   margin-bottom: 1.25rem;
+  flex: 1;
 }
 
 .projects__subtitle {
