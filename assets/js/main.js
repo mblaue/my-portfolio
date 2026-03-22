@@ -134,8 +134,8 @@ themeButton.addEventListener('click', () => {
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 2000,
-    delay: 200,
+    duration: 2200,
+    delay: 300,
     // reset: true // Animations repeat
  })
 
