@@ -819,6 +819,12 @@ body.dark-theme {
   background-color: var(--white-color);
 }
 
+.projects__img--placeholder {
+  aspect-ratio: 4 / 3; 
+  object-fit: cover;
+  width: 100%;
+}
+
 /*=============== CONTACT ===============*/
 .contact {
   padding-bottom: 0;
